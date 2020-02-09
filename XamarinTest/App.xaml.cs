@@ -1,11 +1,26 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinTest.Data;
 
 namespace XamarinTest
 {
     public partial class App : Application
     {
+        static UserDatabase database;
+
+        public static UserDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new UserDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "User.db3"));
+                }
+                return database;
+            }
+        }
         public App()
         {
             InitializeComponent();

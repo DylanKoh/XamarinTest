@@ -18,9 +18,17 @@ namespace XamarinTest
             InitializeComponent();
         }
 
-        private void btnLogin_Clicked(object sender, EventArgs e)
+        private async void btnLogin_Clicked(object sender, EventArgs e)
         {
-
+            var database = await App.Database.GetUserAsync();
+            if (database.Where(x => x.username == entryUsername.Text && x.password == entryPassword.Text).Select(x => x).FirstOrDefault() != null)
+            {
+                await DisplayAlert("Login", $"Welcome {entryUsername.Text}!", "Ok");
+            }
+            else
+            {
+                await DisplayAlert("Login", $"Login failed!", "Ok");
+            }
         }
     }
 }

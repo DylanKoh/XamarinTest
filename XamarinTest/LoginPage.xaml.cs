@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace XamarinTest
 {
+    //Initial commit
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {

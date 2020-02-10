@@ -26,5 +26,9 @@ namespace XamarinTest.Data
         {
             return _database.InsertAsync(user);
         }
+        public Task<int> DeleteUserAsync(User user)
+        {
+            return _database.DeleteAsync(user);
+        }
     }
 }

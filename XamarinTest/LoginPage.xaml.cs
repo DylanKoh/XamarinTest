@@ -24,6 +24,7 @@ namespace XamarinTest
             if (database.Where(x => x.username == entryUsername.Text && x.password == entryPassword.Text).Select(x => x).FirstOrDefault() != null)
             {
                 await DisplayAlert("Login", $"Welcome {entryUsername.Text}!", "Ok");
+                await Navigation.PushAsync(new MainMenu(database.Where(x => x.username == entryUsername.Text && x.password == entryPassword.Text).Select(x => x).FirstOrDefault()));
             }
             else
             {

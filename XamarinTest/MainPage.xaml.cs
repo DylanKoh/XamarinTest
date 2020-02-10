@@ -26,5 +26,10 @@ namespace XamarinTest
         {
             await Navigation.PushAsync(new CreatePage());
         }
+
+        private async void deleteAcc_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DeletePage());
+        }
     }
 }
